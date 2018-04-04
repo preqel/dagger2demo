@@ -21,7 +21,7 @@ public class HttpActivityModule {
     OkHttpClient providerOkHttpClient() {
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setCacheSize(cachesize);
-        return new OkHttpClient();
+        return okHttpClient;
     }
 
     @Provides

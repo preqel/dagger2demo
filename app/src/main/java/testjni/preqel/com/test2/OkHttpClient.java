@@ -5,7 +5,9 @@ package testjni.preqel.com.test2;
  */
 
 public class OkHttpClient {
+
     private int cacheSize;
+
 
     public OkHttpClient(   ) {
 

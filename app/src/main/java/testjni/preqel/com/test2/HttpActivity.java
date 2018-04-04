@@ -14,14 +14,13 @@ import testjni.preqel.com.testdagger.R;
 /**
  * Created by preqel on 2018/3/30.
  */
-
 public class HttpActivity extends AppCompatActivity {
 
 //    @Inject
 //    OkHttpClient okHttpClient;
 
     @Inject
-            RetrofitManager retrofitManager;
+    RetrofitManager retrofitManager;
     TextView textView;
 
     @Override
@@ -29,9 +28,11 @@ public class HttpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textview);
-        textView.setText("httpactivity");
-        DaggerHttpActivityComponent.builder().httpActivityModule(new HttpActivityModule(3)).build().inject(this);
-//        DaggerHttpActivityComponent.create().inject(this);
+
+        DaggerHttpActivityComponent.builder()
+                .httpActivityModule(new HttpActivityModule(3))
+                .build().inject(this);
+        textView.setText(retrofitManager.getOkHttpClient().getCacheSize()+" is cachesize/");
         Toast.makeText(this, retrofitManager.hashCode() + "", Toast.LENGTH_SHORT).show();
     }
 }
