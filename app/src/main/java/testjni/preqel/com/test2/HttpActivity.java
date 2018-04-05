@@ -29,10 +29,20 @@ public class HttpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textview);
 
-        DaggerHttpActivityComponent.builder()
-                .httpActivityModule(new HttpActivityModule(3,"www.baidu.com"))
-                .build().inject(this);
-        textView.setText(retrofitManager.getOkHttpClient().getCacheSize()+" is cachesize/"+ retrofitManager.getOkHttpClient().getUrl());
+        HttpActivityComponent httpActivityComponent = DaggerHttpActivityComponent.builder()
+                .httpActivityModule(new HttpActivityModule(3, "www.baidu.com"))
+                .build();
+         httpActivityComponent.inject(this);
+
+//        HttpsActivityComponent daggerHttpsActivityComponent = DaggerHttpsActivityComponent.builder()
+//                .httpActivityComponent(httpActivityComponent)
+//                .build();
+//          daggerHttpsActivityComponent.inject(this);
+
+        textView.setText(retrofitManager.getOkHttpClient().getCacheSize() + " is cachesize/" + retrofitManager.getOkHttpClient().getUrl());
         Toast.makeText(this, retrofitManager.hashCode() + "", Toast.LENGTH_SHORT).show();
+    }
+
+    private void normalInject() {
     }
 }

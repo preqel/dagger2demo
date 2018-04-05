@@ -15,14 +15,17 @@
         </activity>
         <!-- HttpActivity 演示基本用法-->
         <activity android:name="testjni.preqel.com.test2.HttpActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <!-- BindActivity 演示@bindS 的用法-->
         <activity android:name="testjni.preqel.com.testbind.BindActivity">
 
+        </activity>
+        <activity android:name="testjni.preqel.com.testsubcomponent.SubActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

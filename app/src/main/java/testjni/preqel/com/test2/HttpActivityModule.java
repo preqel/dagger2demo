@@ -72,5 +72,8 @@ public class HttpActivityModule {
     @Scope
     public @interface MyScope {}
 
-
+    @Documented
+    @Retention(RUNTIME)
+    @Scope
+    public @interface MySecondScope {}
 }
