@@ -16,11 +16,11 @@ import testjni.preqel.com.testdagger.R;
  */
 public class HttpActivity extends AppCompatActivity {
 
-//    @Inject
-//    OkHttpClient okHttpClient;
-
     @Inject
+    @HttpActivityModule.MyScope
+    @HttpActivityModule.Named("manager1")
     RetrofitManager retrofitManager;
+
     TextView textView;
 
     @Override
@@ -30,9 +30,9 @@ public class HttpActivity extends AppCompatActivity {
         textView = findViewById(R.id.textview);
 
         DaggerHttpActivityComponent.builder()
-                .httpActivityModule(new HttpActivityModule(3))
+                .httpActivityModule(new HttpActivityModule(3,"www.baidu.com"))
                 .build().inject(this);
-        textView.setText(retrofitManager.getOkHttpClient().getCacheSize()+" is cachesize/");
+        textView.setText(retrofitManager.getOkHttpClient().getCacheSize()+" is cachesize/"+ retrofitManager.getOkHttpClient().getUrl());
         Toast.makeText(this, retrofitManager.hashCode() + "", Toast.LENGTH_SHORT).show();
     }
 }

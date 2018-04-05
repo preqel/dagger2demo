@@ -8,6 +8,8 @@ public class OkHttpClient {
 
     private int cacheSize;
 
+    private String url;
+
 
     public OkHttpClient(   ) {
 
@@ -19,5 +21,13 @@ public class OkHttpClient {
 
     public void setCacheSize(int cacheSize) {
         this.cacheSize = cacheSize;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
