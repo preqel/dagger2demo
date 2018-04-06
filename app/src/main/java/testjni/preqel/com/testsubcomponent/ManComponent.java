@@ -9,7 +9,13 @@ import dagger.Subcomponent;
  * Created by preqel on 2018/4/5.
  */
 @Singleton
-@Component(dependencies = PoorComponent.class,modules= ManModule.class)
+@Subcomponent(modules = ManModule.class)
+//@Component(dependencies = PoorComponent.class,modules= ManModule.class)
 public interface ManComponent {
     void inject(SubActivity subActivity);
+
+    @Subcomponent.Builder
+    interface Builder{
+        ManComponent build();
+    }
 }
