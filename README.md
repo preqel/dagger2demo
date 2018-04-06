@@ -1,2 +1,4 @@
 # dagger2demo
-a project studying the dagger2
+a project learning the MVP with dagger2 
+
+each activity means a knowledage of dagger
