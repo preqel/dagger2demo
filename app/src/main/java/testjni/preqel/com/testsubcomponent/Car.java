@@ -9,6 +9,6 @@ import android.util.Log;
 public class Car {
 
     public void go() {
-        Log.d("TAG", "go starting");
+        Log.d("TAG", "car method go executed");
     }
 }

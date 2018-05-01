@@ -7,8 +7,10 @@ import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import testjni.preqel.com.testdagger.R;
+import testjni.preqel.com.testother.ThemeNight;
 
 /**
  * Created by preqel on 2018/4/5.
@@ -19,7 +21,12 @@ public class SubActivity extends Activity {
     Bike bike;
 
     @Inject
+    @ThemeNight
     Man man;
+
+    @Inject
+    @Named("super car")
+    Car car;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,5 +46,6 @@ public class SubActivity extends Activity {
 
         TextView mtextview = findViewById(R.id.textview);
         mtextview.setText("hello subactivity"+ bike.hashCode()+ " & "+ man.hashCode());
+        if(car != null ) car .go();
     }
 }
